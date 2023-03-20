@@ -16,7 +16,7 @@ describe('User Registeration Test', () => {
       .post('/api/1/users')
       .send({ username: 'admin', password: 'pass1' })
       .then((response) => {
-        expect(response.status).to.equal(200);
+        expect(response.status).toBe(200);
       });
   });
 
@@ -46,7 +46,7 @@ describe('User Registeration Test', () => {
       .send({ username: 'admin', password: 'pass1' })
       .then(() => {
         User.findAll().then((userlist) => {
-          const saveduser=userlist[0];
+          const saveduser = userlist[0];
           expect(saveduser.username).toBe('user1');
           expect(saveduser.email).toBe('');
         });
